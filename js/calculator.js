@@ -27,124 +27,128 @@ window.Calculator = (function() {
     };
 
 
-var input = [];
-var operationSelected;
-var dubs = "00";
+  var input = [];
+  var operationSelected;
+  var dubs = "00";
 
-accessor.point.addEventListener("click", function(){
-  accessor.output.innerHTML += '.';
-  input.push('.');
-});
+  accessor.point.addEventListener("click", function(){
+    accessor.output.innerHTML += '.';
+    input.push('.');
+  });
 
-accessor.zero.addEventListener("click", function(){
-  accessor.output.innerHTML += 0;
-  input.push(0);
-});
+  accessor.zero.addEventListener("click", function(){
+    accessor.output.innerHTML += 0;
+    input.push(0);
+  });
 
-accessor.doubleZero.addEventListener("click", function(){
-  accessor.output.innerHTML += dubs;
-  input.push(dubs);
-});
+  accessor.doubleZero.addEventListener("click", function(){
+    accessor.output.innerHTML += dubs;
+    input.push(dubs);
+  });
 
-accessor.one.addEventListener("click", function(){
-  accessor.output.innerHTML += 1;
-  input.push(1);
-});
+  accessor.one.addEventListener("click", function(){
+    accessor.output.innerHTML += 1;
+    input.push(1);
+  });
 
-accessor.two.addEventListener("click", function(){
-  accessor.output.innerHTML += 2;
-  input.push(2);
-});
+  accessor.two.addEventListener("click", function(){
+    accessor.output.innerHTML += 2;
+    input.push(2);
+  });
 
-accessor.three.addEventListener("click", function(){
-  accessor.output.innerHTML += 3;
-  input.push(3);
-});
+  accessor.three.addEventListener("click", function(){
+    accessor.output.innerHTML += 3;
+    input.push(3);
+  });
 
-accessor.four.addEventListener("click", function(){
-  accessor.output.innerHTML += 4;
-  input.push(4);
-});
+  accessor.four.addEventListener("click", function(){
+    accessor.output.innerHTML += 4;
+    input.push(4);
+  });
 
-accessor.five.addEventListener("click", function(){
-  accessor.output.innerHTML += 5;
-  input.push(5);
-});
+  accessor.five.addEventListener("click", function(){
+    accessor.output.innerHTML += 5;
+    input.push(5);
+  });
 
-accessor.six.addEventListener("click", function(){
-  accessor.output.innerHTML += 6;
-  input.push(6);
-});
+  accessor.six.addEventListener("click", function(){
+    accessor.output.innerHTML += 6;
+    input.push(6);
+  });
 
-accessor.seven.addEventListener("click", function(){
-  accessor.output.innerHTML += 7;
-  input.push(7);
-});
+  accessor.seven.addEventListener("click", function(){
+    accessor.output.innerHTML += 7;
+    input.push(7);
+  });
 
-accessor.eight.addEventListener("click", function(){
-  accessor.output.innerHTML += 8;
-  input.push(8);
-});
+  accessor.eight.addEventListener("click", function(){
+    accessor.output.innerHTML += 8;
+    input.push(8);
+  });
 
-accessor.nine.addEventListener("click", function(){
-  accessor.output.innerHTML += 9;
-  input.push(9);
-});
+  accessor.nine.addEventListener("click", function(){
+    accessor.output.innerHTML += 9;
+    input.push(9);
+  });
 
-accessor.add.addEventListener("click", function(){
-  accessor.output.innerHTML += ' + ';
-  calculatorModule.load(Number(input.join("")));
-  input = [];
-  operationSelected = '+';
-});
+  accessor.add.addEventListener("click", function(){
+    accessor.output.innerHTML += ' + ';
+    calculatorModule.load(Number(input.join("")));
+    input = [];
+    operationSelected = '+';
+  });
 
-accessor.subtract.addEventListener("click", function(){
-  accessor.output.innerHTML += ' - ';
-  calculatorModule.load(Number(input.join("")));
-  input = [];
-  operationSelected = '-';
-});
+  accessor.subtract.addEventListener("click", function(){
+    accessor.output.innerHTML += ' - ';
+    calculatorModule.load(Number(input.join("")));
+    input = [];
+    operationSelected = '-';
+  });
 
-accessor.multiply.addEventListener("click", function(){
-  accessor.output.innerHTML += ' * ';
-  calculatorModule.load(Number(input.join("")));
-  input = [];
-  operationSelected = '*';
-});
+  accessor.multiply.addEventListener("click", function(){
+    accessor.output.innerHTML += ' * ';
+    calculatorModule.load(Number(input.join("")));
+    input = [];
+    operationSelected = '*';
+  });
 
-accessor.divide.addEventListener("click", function(){
-  accessor.output.innerHTML += ' / ';
-  calculatorModule.load(Number(input.join("")));
-  input = [];
-  operationSelected = '/';
-});
+  accessor.divide.addEventListener("click", function(){
+    accessor.output.innerHTML += ' / ';
+    calculatorModule.load(Number(input.join("")));
+    input = [];
+    operationSelected = '/';
+  });
 
-accessor.calculate.addEventListener('click', function(){
-  if(operationSelected){
-  switch(operationSelected){
-    case '+' :
-      calculatorModule.add(Number(input.join("")));
-      input = [];
-      break;
-    case '-' :
-      calculatorModule.subtract(Number(input.join("")));
-     // input = [];
-      break;
-    case '*' :
-      calculatorModule.multiply(Number(input.join("")));
-     // input = [];
-     break;
-    case '/' :
-      calculatorModule.divide(Number(input.join("")));
-      input = [];
-      break;
+  accessor.calculate.addEventListener('click', function(){
+    if(operationSelected){
+    switch(operationSelected){
+      case '+' :
+        calculatorModule.add(Number(input.join("")));
+        input = [];
+        input.push(calculatorModule.getTotal());
+        break;
+      case '-' :
+        calculatorModule.subtract(Number(input.join("")));
+        input = [];
+        input.push(calculatorModule.getTotal());
+        break;
+      case '*' :
+        calculatorModule.multiply(Number(input.join("")));
+        input = [];
+        input.push(calculatorModule.getTotal());
+        break;
+      case '/' :
+        calculatorModule.divide(Number(input.join("")));
+        input = [];
+        input.push(calculatorModule.getTotal());
+        break;
+    }
+
   }
-}
-
 
   var finaltotal = calculatorModule.getTotal();
   accessor.output.innerHTML = finaltotal;
-  console.log(calculatorModule.getTotal());
+
 });
 
 
@@ -253,11 +257,7 @@ accessor.calculate.addEventListener('click', function(){
      }
 
 
-
-
-
   })();
-
 
 
 })();
