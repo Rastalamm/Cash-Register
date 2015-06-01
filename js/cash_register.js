@@ -1,6 +1,4 @@
-
-
-var theBigIf = (function() {
+window.cashMoney = (function() {
   'use strict';
 
 
@@ -15,7 +13,7 @@ var theBigIf = (function() {
     };
 
     function _clear(){
-
+      input = [];
     }
 
     function _append(){
