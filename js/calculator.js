@@ -151,7 +151,6 @@ window.Calculator = (function() {
 
 });
 
-
     var calculatorModule = (function(){
       var memory = 0;
       var total = 0;
